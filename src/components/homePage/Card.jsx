@@ -7,7 +7,7 @@ export default function Card() {
           alt="Shoes"
         />
       </figure>
-      <div className="card-body">
+      <div className="card-body p-4">
         <h2 className="card-title">
           Shoes!
           <div className="badge badge-secondary">NEW</div>

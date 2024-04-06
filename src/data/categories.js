@@ -1,0 +1,17 @@
+export const categoryNames = [
+  "comedy",
+  "thriller",
+  "science",
+  "romance",
+  "technology",
+  "biology",
+  "physics",
+  "history",
+  "crime",
+  "cooking",
+  "programming",
+  "religion",
+  "philosophy",
+  "english",
+  "war",
+];

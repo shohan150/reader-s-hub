@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Footer from "./components/common/Footer";
 import Header from "./components/common/Header";
 import HeroSection from "./components/homePage/HeroSection";
 import Content from "./components/pages/Content";
@@ -11,6 +12,8 @@ function App() {
       <Header />
       <HeroSection />
       <Content />
+
+      <Footer />
     </div>
   );
 }
