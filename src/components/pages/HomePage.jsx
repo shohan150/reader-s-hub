@@ -6,11 +6,11 @@ export default function HomePage() {
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(
-        "https://openlibrary.org/search.json?q=trending&limit=20"
+        "https://www.googleapis.com/books/v1/volumes?q=flowers+inauthor:keyes&key=AIzaSyAl1UDXHPMkpljBXO5yK0nHRSrv9f-fREc"
       );
       const data = await response.json();
       // console.log(data);
-      setBooks(data.docs);
+      setBooks(data.items);
     }
     fetchData();
   }, []);

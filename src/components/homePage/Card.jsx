@@ -1,31 +1,38 @@
 import { useState } from "react";
 import { FaHeart } from "react-icons/fa";
+import imageNotFound from "../../assets/3.jpg";
 export default function Card({ book }) {
+  const bookInfo = book.volumeInfo;
   const [isFavourite, setIsFavourite] = useState(false);
   function handleFavouriteClick() {
     setIsFavourite(!isFavourite);
   }
 
-  const subject = book?.subject;
-  const limitedSubject = subject?.length > 4 ? subject.slice(0, 4) : subject;
-
   return (
     <div className="card bg-base-100 shadow-xl col-span-1">
       <figure>
         <img
-          src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-          alt="Shoes"
+          src={bookInfo?.imageLinks?.thumbnail ?? imageNotFound}
+          alt={bookInfo?.title}
+          className=""
         />
       </figure>
       <div className="card-body p-4">
-        <h2 className="card-title">{book?.title}</h2>
-        <h4 className="card-title">{book?.author_name}</h4>
+        <h2 className="card-title">{bookInfo?.title}</h2>
+        <div>
+          {bookInfo?.authors?.map((author, index) => (
+            <span className="font-medium text-md" key={index}>
+              {index == 0 ? `${author}` : `, ${author}`}
+            </span>
+          ))}
+        </div>
+
         <div className="card-actions justify-start">
-          {limitedSubject?.map(
-            (sub, index) =>
-              sub?.length < 30 && (
+          {bookInfo?.categories?.map(
+            (cat, index) =>
+              cat?.length < 30 && (
                 <div className="badge badge-accent badge-outline" key={index}>
-                  {sub}
+                  {cat}
                 </div>
               )
           )}
@@ -48,8 +55,15 @@ export default function Card({ book }) {
             )}
           </button>
         </div>
-
-        <p>If a dog chews shoes whose shoes does he choose?</p>
+        {bookInfo?.description ? (
+          <p>
+            {bookInfo?.description?.length < 85
+              ? bookInfo?.description
+              : `${bookInfo?.description.substring(0, 85)} ...`}
+          </p>
+        ) : (
+          <p className="italic my-2">Description not available</p>
+        )}
       </div>
     </div>
   );
