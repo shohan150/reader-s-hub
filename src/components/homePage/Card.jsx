@@ -56,11 +56,21 @@ export default function Card({ book }) {
           </button>
         </div>
         {bookInfo?.description ? (
-          <p>
-            {bookInfo?.description?.length < 85
-              ? bookInfo?.description
-              : `${bookInfo?.description.substring(0, 85)} ...`}
-          </p>
+          <span>
+            {bookInfo?.description?.length < 85 ? (
+              <span>{bookInfo?.description}</span>
+            ) : (
+              <span>
+                {bookInfo?.description.substring(0, 85)}...{" "}
+                <a
+                  href="#"
+                  className="inline italic text-sm underline text-red-400"
+                >
+                  Read More
+                </a>
+              </span>
+            )}
+          </span>
         ) : (
           <p className="italic my-2">Description not available</p>
         )}
