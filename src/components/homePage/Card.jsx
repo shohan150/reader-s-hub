@@ -14,11 +14,11 @@ export default function Card({ book }) {
         />
       </figure>
       <div className="card-body p-4">
-        <h2 className="card-title">{book.title}</h2>
-        <h4 className="card-title">{book.author_name}</h4>
+        <h2 className="card-title">{book?.title}</h2>
+        <h4 className="card-title">{book?.author_name}</h4>
         <div className="card-actions justify-start">
+          {console.log(book?.subject)}
           <div className="badge badge-accent badge-outline">Fashion</div>
-          <div className="badge badge-accent badge-outline">Products</div>
         </div>
         <div className="w-fit border-2 border-pink-300 rounded-md bg-pink-200 px-2 py-1">
           <button
