@@ -5,6 +5,10 @@ export default function Card({ book }) {
   function handleFavouriteClick() {
     setIsFavourite(!isFavourite);
   }
+
+  const subject = book?.subject;
+  const limitedSubject = subject?.length > 4 ? subject.slice(0, 4) : subject;
+
   return (
     <div className="card bg-base-100 shadow-xl col-span-1">
       <figure>
@@ -17,8 +21,14 @@ export default function Card({ book }) {
         <h2 className="card-title">{book?.title}</h2>
         <h4 className="card-title">{book?.author_name}</h4>
         <div className="card-actions justify-start">
-          {console.log(book?.subject)}
-          <div className="badge badge-accent badge-outline">Fashion</div>
+          {limitedSubject?.map(
+            (sub, index) =>
+              sub?.length < 30 && (
+                <div className="badge badge-accent badge-outline" key={index}>
+                  {sub}
+                </div>
+              )
+          )}
         </div>
         <div className="w-fit border-2 border-pink-300 rounded-md bg-pink-200 px-2 py-1">
           <button

@@ -1,7 +1,11 @@
 import { categoryNames } from "../../data/categories";
 
 export default function CategoriesBox() {
-  const badgeColors = ["primary", "secondary", "accent"];
+  const badgeColors = ["primary", "secondary", "accent", "info"];
+  // badge-primary
+  // badge-secondary
+  // badge-accent
+  // badge-info
 
   return (
     <div className="border-2 border-secondary rounded-lg p-4  mb-4">
