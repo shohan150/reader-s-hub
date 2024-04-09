@@ -1,11 +1,11 @@
-import { FaRegHeart, FaSearch } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
+import SearchModal from "../search/SearchModal";
 import ThemeController from "./ThemeController";
 export default function HeaderActions() {
   return (
     <>
-      <button className="btn btn-ghost btn-circle">
-        <FaSearch />
-      </button>
+      <SearchModal />
+
       <button className="btn btn-ghost btn-circle">
         <div className="indicator">
           <FaRegHeart />

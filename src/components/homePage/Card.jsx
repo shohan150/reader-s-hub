@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import imageNotFound from "../../assets/3.jpg";
@@ -14,7 +15,7 @@ export default function Card({ book }) {
         <img
           src={bookInfo?.imageLinks?.thumbnail ?? imageNotFound}
           alt={bookInfo?.title}
-          className=""
+          className="w-full h-60 lg:h-64 xl:72"
         />
       </figure>
       <div className="card-body p-4">
