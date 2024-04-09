@@ -5,7 +5,6 @@ export default function HeaderActions() {
   return (
     <>
       <SearchModal />
-
       <button className="btn btn-ghost btn-circle">
         <div className="indicator">
           <FaRegHeart />

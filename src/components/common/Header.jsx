@@ -29,7 +29,7 @@ export default function Header() {
           <Menu />
         </ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end pr-2">
         <HeaderActions />
       </div>
     </div>
