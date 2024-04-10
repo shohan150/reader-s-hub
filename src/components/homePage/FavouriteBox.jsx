@@ -12,9 +12,10 @@ export default function FavouriteBox({ book }) {
       const favouritesData = {
         task_type: "add",
         data: {
-          title: book.volumeInfo.title,
-          author: book.volumeInfo.authors,
-          id: book.id,
+          title: book.volumeInfo?.title,
+          author: book.volumeInfo?.authors,
+          image: book.volumeInfo?.imageLinks?.smallThumbnail,
+          id: book?.id,
         },
       };
       toggleFavourite(favouritesData);
