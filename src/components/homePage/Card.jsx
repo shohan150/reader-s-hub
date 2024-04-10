@@ -1,13 +1,9 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
-import { FaHeart } from "react-icons/fa";
+
 import imageNotFound from "../../assets/3.jpg";
+import FavouriteBox from "./FavouriteBox";
 export default function Card({ book }) {
   const bookInfo = book.volumeInfo;
-  const [isFavourite, setIsFavourite] = useState(false);
-  function handleFavouriteClick() {
-    setIsFavourite(!isFavourite);
-  }
 
   return (
     <div className="card bg-base-100 shadow-xl col-span-1">
@@ -32,30 +28,18 @@ export default function Card({ book }) {
           {bookInfo?.categories?.map(
             (cat, index) =>
               cat?.length < 30 && (
-                <div className="badge badge-accent badge-outline" key={index}>
+                <div
+                  className="badge badge-accent badge-outline my-1"
+                  key={index}
+                >
                   {cat}
                 </div>
               )
           )}
         </div>
-        <div className="w-fit border-2 border-pink-300 rounded-md bg-pink-200 px-2 py-1">
-          <button
-            className="flex items-center gap-2"
-            onClick={handleFavouriteClick}
-          >
-            {isFavourite ? (
-              <>
-                Added to Favourites
-                <FaHeart fill="red" />
-              </>
-            ) : (
-              <>
-                Add to Favourites
-                <FaHeart fill="violet" />
-              </>
-            )}
-          </button>
-        </div>
+
+        <FavouriteBox book={book} />
+
         {bookInfo?.description ? (
           <span>
             {bookInfo?.description?.length < 85 ? (

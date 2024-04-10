@@ -1,20 +1,17 @@
-import { useState } from "react";
 import Footer from "./components/common/Footer";
 import Header from "./components/common/Header";
 import HeroSection from "./components/homePage/HeroSection";
 import Content from "./components/pages/Content";
+import { FavouriteProvider } from "./providers";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div>
+    <FavouriteProvider>
       <Header />
       <HeroSection />
       <Content />
-
       <Footer />
-    </div>
+    </FavouriteProvider>
   );
 }
 
