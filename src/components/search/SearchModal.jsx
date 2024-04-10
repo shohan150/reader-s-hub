@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import Card from "../../components/homePage/Card";
 import CardSkeleton from "../../components/homePage/CardSkeleton";
+import useDebounce from "../../hooks/useDebounce";
 
 export default function SearchModal() {
   const [isHovered, setIsHovered] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchedBooks, setSearchedBooks] = useState([]);
-
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -17,7 +17,12 @@ export default function SearchModal() {
 
   const handleChange = (value) => {
     setSearchTerm(value);
+    performSearch(value);
   };
+
+  const performSearch = useDebounce((term) => {
+    fetchSearchedBooks(term);
+  }, 500);
 
   async function fetchSearchedBooks(searchTerm) {
     try {
@@ -27,12 +32,12 @@ export default function SearchModal() {
         message: "Fetching the booklist...",
       });
       const response = await fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=3&key=${
+        `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=12&key=${
           import.meta.env.VITE_GOOGLE_BOOKS_API_KEY
         }`
       );
       if (!response.ok) {
-        const errorMessage = `Fetching weather data failed: ${response.status}`;
+        const errorMessage = `Fetching books failed: ${response.status}`;
         throw new Error(errorMessage);
       }
       const data = await response.json();
@@ -50,9 +55,9 @@ export default function SearchModal() {
     }
   }
 
-  useEffect(() => {
-    fetchSearchedBooks(searchTerm);
-  }, [searchTerm]);
+  // useEffect(() => {
+  //   fetchSearchedBooks(searchTerm);
+  // }, [searchTerm]);
 
   return (
     <>
@@ -76,12 +81,19 @@ export default function SearchModal() {
               handleChange(e.target.value);
             }}
           ></input>
-          {searchedBooks.map((book, index) =>
-            loading.state ? (
-              <CardSkeleton key={index} />
-            ) : (
-              <Card key={book?.id} book={book} />
-            )
+          <div className="grid lg:grid-cols-3  grid-cols-2 lg:gap-6 gap-3">
+            {searchedBooks.map((book, index) =>
+              loading.state ? (
+                <CardSkeleton key={index} />
+              ) : (
+                <Card key={book?.id} book={book} />
+              )
+            )}
+          </div>
+          {searchedBooks.length > 0 && (
+            <button className="btn btn-primary w-full mt-6 mb-1">
+              Load More
+            </button>
           )}
         </div>
 

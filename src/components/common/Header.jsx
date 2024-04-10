@@ -4,7 +4,7 @@ import Menu from "./Menu";
 
 export default function Header() {
   return (
-    <div className="navbar bg-base-100 fixed z-10">
+    <div className="navbar bg-base-100 fixed z-10 top-0 ">
       <div className="navbar-start">
         {/* the hamburger menu for small devices */}
         <div className="dropdown">

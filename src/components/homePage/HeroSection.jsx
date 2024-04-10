@@ -4,7 +4,7 @@ import Slides from "./Slides.jsx";
 
 export default function HeroSection() {
   return (
-    <div className="carousel w-full">
+    <div className="carousel w-full mt-12">
       {slidesData.map((slide) => (
         <div
           id={`slide${slide.id}`}
