@@ -90,11 +90,11 @@ export default function SearchModal() {
               )
             )}
           </div>
-          {searchedBooks.length > 0 && (
+          {/* {searchedBooks.length > 0 && (
             <button className="btn btn-primary w-full mt-6 mb-1">
               Load More
             </button>
-          )}
+          )} */}
         </div>
 
         <form method="dialog" className="modal-backdrop">
