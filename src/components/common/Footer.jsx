@@ -1,4 +1,4 @@
-import logo from "../../assets/logo.jpg";
+import logo from "/assets/logo.jpg";
 export default function Footer() {
   return (
     <div>
@@ -6,7 +6,7 @@ export default function Footer() {
       <footer className="footer items-center lg:p-8 p-4 bg-neutral text-neutral-content pt-8">
         <aside className="items-center grid-flow-col">
           <img src={logo} alt="Reader's Hub Logo" className="w-14" />
-          <div className="space-y-1">
+          <div className="space-y-1 ml-2">
             <p>Developed by Md. Shohanur Rahman</p>
             <p>A Book Finder Website using Open Library API</p>
           </div>

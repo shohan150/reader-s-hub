@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
-import imageNotFound from "../../assets/3.jpg";
 import FavouriteBox from "./FavouriteBox";
+import imageNotFound from "/assets/3.jpg";
 export default function Card({ book }) {
   const bookInfo = book.volumeInfo;
 
