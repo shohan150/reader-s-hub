@@ -15,7 +15,7 @@ export default function Slides({ title, image }) {
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
             a id nisi.
           </p>
-          <button className="btn btn-primary">Get Started</button>
+          <button className="btn btn-primary">Search Books</button>
         </div>
       </div>
     </div>

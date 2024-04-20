@@ -1,22 +1,22 @@
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import Card from "../../components/homePage/Card";
-import CardSkeleton from "../../components/homePage/CardSkeleton";
+import Card from "../../components/card/Card";
+import CardSkeleton from "../../components/card/CardSkeleton";
 import useDebounce from "../../hooks/useDebounce";
 
 export default function SearchModal() {
   const [isHovered, setIsHovered] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
+  // const [searchTerm, setSearchTerm] = useState("");
   const [searchedBooks, setSearchedBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-
+  console.log(searchedBooks);
   const handleHover = () => {
     setIsHovered(!isHovered);
   };
 
   const handleChange = (value) => {
-    setSearchTerm(value);
+    // setSearchTerm(value);
     performSearch(value);
   };
 
@@ -81,15 +81,19 @@ export default function SearchModal() {
               handleChange(e.target.value);
             }}
           ></input>
-          <div className="grid lg:grid-cols-3  grid-cols-2 lg:gap-6 gap-3">
-            {searchedBooks.map((book, index) =>
-              loading.state ? (
-                <CardSkeleton key={index} />
-              ) : (
-                <Card key={book?.id} book={book} />
-              )
-            )}
-          </div>
+          {!searchedBooks ? (
+            <p className="text-center py-1">No books found</p>
+          ) : (
+            <div className="grid lg:grid-cols-3  grid-cols-2 lg:gap-6 gap-3">
+              {searchedBooks.map((book, index) =>
+                loading.state ? (
+                  <CardSkeleton key={index} />
+                ) : (
+                  <Card key={book?.id} book={book} />
+                )
+              )}
+            </div>
+          )}
           {/* {searchedBooks.length > 0 && (
             <button className="btn btn-primary w-full mt-6 mb-1">
               Load More

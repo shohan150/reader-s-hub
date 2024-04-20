@@ -1,15 +1,14 @@
 import Footer from "./components/common/Footer";
-import Header from "./components/common/Header";
-import HeroSection from "./components/homePage/HeroSection";
-import Content from "./components/pages/Content";
+import Header from "./components/header/Header";
+
+import HomePage from "./components/pages/HomePage";
 import { FavouriteProvider } from "./providers";
 
 function App() {
   return (
     <FavouriteProvider>
       <Header />
-      <HeroSection />
-      <Content />
+      <HomePage />
       <Footer />
     </FavouriteProvider>
   );
