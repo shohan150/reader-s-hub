@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
 
 import FavouriteBox from "./FavouriteBox";
 import imageNotFound from "/assets/3.jpg";
@@ -7,15 +8,18 @@ export default function Card({ book }) {
 
   return (
     <div className="card bg-base-100 shadow-xl col-span-1">
-      <figure>
+      <Link to={`/book/${book.id}`}>
         <img
           src={bookInfo?.imageLinks?.thumbnail ?? imageNotFound}
           alt={bookInfo?.title}
-          className="w-full h-60 lg:h-64 xl:72"
+          className="w-full h-60 lg:h-64 xl:72 rounded-t-2xl"
         />
-      </figure>
+      </Link>
+
       <div className="card-body p-4">
-        <h2 className="card-title">{bookInfo?.title}</h2>
+        <Link to={`/book/${book.id}`}>
+          <h2 className="card-title">{bookInfo?.title}</h2>
+        </Link>
         <div>
           {bookInfo?.authors?.map((author, index) => (
             <span className="font-medium text-md" key={index}>
@@ -47,12 +51,12 @@ export default function Card({ book }) {
             ) : (
               <span>
                 {bookInfo?.description.substring(0, 85)}...{" "}
-                <a
-                  href="#"
+                <Link
+                  to={`/book/${book.id}`}
                   className="inline italic text-sm underline text-red-400"
                 >
                   Read More
-                </a>
+                </Link>
               </span>
             )}
           </span>
