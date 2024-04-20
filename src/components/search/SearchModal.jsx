@@ -6,17 +6,11 @@ import useDebounce from "../../hooks/useDebounce";
 
 export default function SearchModal() {
   const [isHovered, setIsHovered] = useState(false);
-  // const [searchTerm, setSearchTerm] = useState("");
   const [searchedBooks, setSearchedBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  console.log(searchedBooks);
-  const handleHover = () => {
-    setIsHovered(!isHovered);
-  };
 
   const handleChange = (value) => {
-    // setSearchTerm(value);
     performSearch(value);
   };
 
@@ -62,13 +56,13 @@ export default function SearchModal() {
   return (
     <>
       <button
-        className="btn hover:flex hover:items-center transition duration-300 ease-in-out"
-        onMouseEnter={handleHover}
-        onMouseLeave={handleHover}
+        className="btn hover:flex hover:items-center  group"
         onClick={() => document.getElementById("search_modal").showModal()}
       >
         <FaSearch />
-        {isHovered && <span>Search </span>}
+        <span className="hidden group-hover:block transition duration-200 ease-in-out">
+          Search
+        </span>
       </button>
       <dialog id="search_modal" className="modal">
         <div className="modal-box w-3/4 max-w-5xl">
