@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import OtherDetails from "./OtherDetails";
+import imgNotFound from "/assets/3.jpg";
 
 export default function BookInfo({ data }) {
   return (
     <>
       <img
-        src={data?.imageLinks?.thumbnail}
+        src={data?.imageLinks?.thumbnail ?? imgNotFound}
         alt="Book Cover"
         className="h-48 md:h-64 min-w-36 md:min-w-52"
       />
