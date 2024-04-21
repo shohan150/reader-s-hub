@@ -1,7 +1,7 @@
 import logo from "/assets/logo.jpg";
 export default function Footer() {
   return (
-    <div>
+    <div className="">
       <hr />
       <footer className="footer items-center lg:p-8 p-4 bg-neutral text-neutral-content pt-8">
         <aside className="items-center grid-flow-col">
