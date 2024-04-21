@@ -3,10 +3,11 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import ErrorPage from "./components/common/ErrorPage";
+import CategoryPage from "./components/pages/CategoryPage";
 import HomePage from "./components/pages/HomePage";
 import SingleBook from "./components/pages/SingleBook";
 import "./index.css";
-import { bookLoader } from "./loaders/bookLoader";
+import { bookLoader, categoryLoader } from "./loaders/";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,11 @@ const router = createBrowserRouter([
         path: "/book/:bookId",
         element: <SingleBook />,
         loader: bookLoader,
+      },
+      {
+        path: "/category/:categoryName",
+        element: <CategoryPage />,
+        loader: categoryLoader,
       },
     ],
   },

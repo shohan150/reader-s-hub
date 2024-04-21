@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import OtherDetails from "./OtherDetails";
 
 export default function BookInfo({ data }) {
@@ -6,8 +7,9 @@ export default function BookInfo({ data }) {
       <img
         src={data?.imageLinks?.thumbnail}
         alt="Book Cover"
-        className="h-48 lg:h-64 min-w-32 lg:min-w-48"
+        className="h-48 md:h-64 min-w-36 md:min-w-52"
       />
+
       <div className="space-y-4">
         <h1 className="text-white text-2xl md:text-4xl font-semibold tracking-wider">
           {data.title}
@@ -21,9 +23,14 @@ export default function BookInfo({ data }) {
         </div>
         <div className="card-actions justify-start">
           {data?.categories?.map((cat, index) => (
-            <div className="badge badge-accent badge-outline my-1" key={index}>
-              {cat}
-            </div>
+            <Link key={index} to={`/category/${cat}`}>
+              <div
+                className="badge badge-accent badge-outline my-1"
+                key={index}
+              >
+                {cat}
+              </div>
+            </Link>
           ))}
         </div>
         <p className="text-md text-gray-300">{data.description}</p>

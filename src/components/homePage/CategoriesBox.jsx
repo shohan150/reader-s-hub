@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { categoryNames } from "../../data/categories";
 
 export default function CategoriesBox() {
@@ -13,14 +14,15 @@ export default function CategoriesBox() {
         Find the books of your favourite category
       </h1>
       {categoryNames.map((category, index) => (
-        <div
-          className={`py-4 px-5 m-1 text-[16px] font-medium badge   badge-${
-            badgeColors[Math.floor(Math.random() * badgeColors.length)]
-          }`}
-          key={index}
-        >
-          {category}
-        </div>
+        <Link key={index} to={`/category/${category}`}>
+          <div
+            className={`py-4 px-5 m-1 text-[16px] font-medium badge   badge-${
+              badgeColors[Math.floor(Math.random() * badgeColors.length)]
+            }`}
+          >
+            {category}
+          </div>
+        </Link>
       ))}
     </div>
   );

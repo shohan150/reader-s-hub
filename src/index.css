@@ -4,6 +4,6 @@
 
 @layer components {
   .my-container {
-    @apply md:p-4 lg:p-6 xl:p-8 p-3 bg-neutral lg:pb-12 xl:pb-14 pb-10;
+    @apply md:p-4 lg:p-6 xl:p-8 p-3 bg-neutral pb-8 md:pb-12 lg:pb-14 xl:pb-16;
   }
 }

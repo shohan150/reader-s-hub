@@ -4,7 +4,7 @@ import { useFavourites } from "../../hooks";
 export default function FavouriteBox({ book }) {
   const { bookList, toggleFavourite } = useFavourites();
   const [isFavourite, setIsFavourite] = useState(
-    bookList.some((favBook) => favBook.id === book.id)
+    bookList.some((favBook) => favBook?.id === book?.id)
   );
 
   function handleFavouriteClick() {

@@ -32,12 +32,14 @@ export default function Card({ book }) {
           {bookInfo?.categories?.map(
             (cat, index) =>
               cat?.length < 30 && (
-                <div
-                  className="badge badge-accent badge-outline my-1"
-                  key={index}
-                >
-                  {cat}
-                </div>
+                <Link key={index} to={`/category/${cat}`}>
+                  <div
+                    className="badge badge-accent badge-outline my-1"
+                    key={index}
+                  >
+                    {cat}
+                  </div>
+                </Link>
               )
           )}
         </div>
