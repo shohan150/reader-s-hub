@@ -3,6 +3,9 @@ import OtherDetails from "./OtherDetails";
 import imgNotFound from "/assets/3.jpg";
 
 export default function BookInfo({ data }) {
+  function trimCategory(categoryName) {
+    return categoryName.split("/")[0];
+  }
   return (
     <>
       <img
@@ -17,14 +20,16 @@ export default function BookInfo({ data }) {
         </h1>
         <div>
           {data?.authors?.map((author, index) => (
-            <span className="text-sm text-gray-300" key={index}>
-              {index == 0 ? `${author}` : `, ${author}`}
-            </span>
+            <Link to={`/author/${author}`} key={index}>
+              <span className="text-sm text-gray-300">
+                {index == 0 ? `${author}` : `, ${author}`}
+              </span>
+            </Link>
           ))}
         </div>
         <div className="card-actions justify-start">
           {data?.categories?.map((cat, index) => (
-            <Link key={index} to={`/category/${cat}`}>
+            <Link key={index} to={`/category/${trimCategory(cat)}`}>
               <div
                 className="badge badge-accent badge-outline my-1"
                 key={index}

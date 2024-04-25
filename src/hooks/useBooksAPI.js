@@ -7,7 +7,7 @@ const useBooksAPI = ({
   maxResults = 24,
   orderBy = "relevance",
 }) => {
-  const [books, setBooks] = useState(new Array(18).fill({}));
+  const [books, setBooks] = useState(new Array(maxResults).fill({}));
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 

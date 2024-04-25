@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import { useBooksAPI } from "../../hooks";
 import Card from "../card/Card";
@@ -11,6 +12,10 @@ export default function SingleBook() {
   const searchParams = { searchTerm: data?.publisher, maxResults: 4 };
 
   const { books, loading } = useBooksAPI(searchParams);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [bookData]);
 
   return (
     <div className="mt-12 pt-16 my-container">

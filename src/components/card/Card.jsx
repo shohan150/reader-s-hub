@@ -22,9 +22,11 @@ export default function Card({ book }) {
         </Link>
         <div>
           {bookInfo?.authors?.map((author, index) => (
-            <span className="font-medium text-md" key={index}>
-              {index == 0 ? `${author}` : `, ${author}`}
-            </span>
+            <Link to={`/author/${author}`} key={index}>
+              <span className="font-medium text-md">
+                {index == 0 ? `${author}` : `, ${author}`}
+              </span>
+            </Link>
           ))}
         </div>
 

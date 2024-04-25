@@ -1,9 +1,15 @@
 import { useLoaderData } from "react-router-dom";
 import Card from "../card/Card";
 
+import { useEffect } from "react";
+
 export default function CategoryPage() {
   const { bookData, category } = useLoaderData();
-  console.log(bookData);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [bookData]);
+
   return (
     <div className="mt-8 my-container">
       <h1 className="text-white text-4xl font-semibold tracking-wider my-10 lg:my-14">
