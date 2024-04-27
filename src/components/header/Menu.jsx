@@ -1,13 +1,15 @@
+import { Link } from "react-router-dom";
+
 export default function Menu() {
   return (
     <>
       <li>
-        <a>Home</a>
+        <Link to="/">Home</Link>
       </li>
       <li>
-        <a>Trending</a>
+        <Link to="/about-us">About Us</Link>
       </li>
-      <li>
+      {/* <li>
         <details>
           <summary>Bestsellers</summary>
           <ul className="p-2 ">
@@ -19,7 +21,7 @@ export default function Menu() {
             </li>
           </ul>
         </details>
-      </li>
+      </li> */}
     </>
   );
 }

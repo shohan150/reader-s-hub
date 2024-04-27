@@ -8,6 +8,7 @@ export default function AuthorPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [bookData]);
+
   return (
     <div className="mt-8 my-container">
       {bookData.totalItems ? (
