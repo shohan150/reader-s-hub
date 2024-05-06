@@ -2,10 +2,12 @@
 import { useContext } from "react";
 import { FavouriteContext } from "../context";
 
-const storeFavourites = () => {
+const useFavourites = () => {
   const { bookList, setBooklist } = useContext(FavouriteContext);
   let updatedList;
   let stringifiedList;
+
+  //console.log(bookList);
 
   function toggleFavourite({ task_type, data }) {
     switch (task_type) {
@@ -20,9 +22,10 @@ const storeFavourites = () => {
         localStorage.setItem("myFavBookList", stringifiedList);
         break;
     }
+    //console.log(updatedList);
     setBooklist(updatedList);
   }
 
   return { bookList, toggleFavourite };
 };
-export default storeFavourites;
+export default useFavourites;

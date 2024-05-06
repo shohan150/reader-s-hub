@@ -1,12 +1,13 @@
-import { useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import { useFavourites } from "../../hooks";
+
 export default function FavouriteBox({ book }) {
   const { bookList, toggleFavourite } = useFavourites();
-  const [isFavourite, setIsFavourite] = useState(
-    bookList.some((favBook) => favBook?.id === book?.id)
-  );
-
+  console.log(bookList);
+  // const [isFavourite, setIsFavourite] = useState(
+  //   bookList.some((favBook) => favBook?.id === book?.id)
+  // );
+  const isFavourite = bookList.some((favBook) => favBook?.id === book?.id);
   function handleFavouriteClick() {
     if (!isFavourite) {
       const favouritesData = {
