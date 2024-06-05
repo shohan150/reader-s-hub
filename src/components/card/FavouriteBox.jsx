@@ -3,7 +3,7 @@ import { useFavourites } from "../../hooks";
 
 export default function FavouriteBox({ book }) {
   const { bookList, toggleFavourite } = useFavourites();
-  console.log(bookList);
+  // console.log(bookList);
   // const [isFavourite, setIsFavourite] = useState(
   //   bookList.some((favBook) => favBook?.id === book?.id)
   // );
@@ -29,7 +29,6 @@ export default function FavouriteBox({ book }) {
       };
       toggleFavourite(favouritesData);
     }
-    setIsFavourite(!isFavourite);
   }
   //   console.log(book);
   return (
